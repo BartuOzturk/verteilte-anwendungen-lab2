@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @NamedQuery(name = "ProjectEntity.deleteById", query = "delete from ProjectEntity user where user.id = :id")
 @Entity
-@Table(name = "Project")
+@Table(name = "PROJECT")
 public class ProjectEntity extends AbstractEntity {
         @Id
         @GeneratedValue(generator = "UUID")

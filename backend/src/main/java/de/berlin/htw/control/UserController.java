@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import javax.transaction.UserTransaction;
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.NotFoundException;
+import javax.ws.rs.Path;
 
 import org.jboss.logging.Logger;
 
@@ -22,13 +23,13 @@ import de.berlin.htw.lib.model.UserModel;
  */
 @RequestScoped
 public class UserController {
-    
+
     @Inject
     Logger logger;
 
     @Inject
     UserRepository repository;
-    
+
     @Inject
     UserTransaction transaction;
 
@@ -43,7 +44,7 @@ public class UserController {
         entity.setEmail(user.getEmail());
         try {
             transaction.begin();
-            String userId = repository.add(entity);
+            String userId = repository.persist(entity);
             transaction.commit();
             return userId;
         } catch (EntityExistsException e) {

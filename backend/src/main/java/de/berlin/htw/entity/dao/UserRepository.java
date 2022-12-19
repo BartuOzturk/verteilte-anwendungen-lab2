@@ -25,7 +25,7 @@ public class UserRepository {
 
     @PersistenceContext
     EntityManager entityManager;
-    
+
     @Transactional(TxType.NEVER)
     public List<UserEntity> getAll() {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
@@ -42,7 +42,7 @@ public class UserRepository {
         return entityManager.find(UserEntity.class, id);
     }
 
-    public String add(@Valid final UserEntity user) {
+    public String persist(@Valid final UserEntity user) {
         entityManager.persist(user);
         return user.getId();
     }
@@ -62,5 +62,5 @@ public class UserRepository {
     public EntityManager getEntityManager() {
         return entityManager;
     }
-    
+
 }

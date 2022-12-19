@@ -39,7 +39,7 @@ public class ProjectRepository {
             return entityManager.find(ProjectEntity.class, id);
         }
 
-        public String add(@Valid final ProjectEntity project) {
+        public String persist(@Valid final ProjectEntity project) {
             entityManager.persist(project);
             return project.getId();
         }
