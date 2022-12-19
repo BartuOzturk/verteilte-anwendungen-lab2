@@ -1,15 +1,12 @@
 package de.berlin.htw.entity.dto;
 
+import java.util.List;
 import java.util.UUID;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 
+import liquibase.hub.model.Project;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
@@ -32,10 +29,13 @@ public class UserEntity extends AbstractEntity implements UserModel {
     @Type(type = "org.hibernate.type.UUIDCharType")
     @Column(name = "ID", nullable = false, length = 36)
     private UUID id;
-    
+
     @Column(name = "NAME")
     private String name;
-    
+
+    @ManyToMany(mappedBy = "users")
+    private List<ProjectEntity> projects;
+
     @Email
     @Column(name = "EMAIL", nullable = false, unique = true)
     private String email;
@@ -66,5 +66,12 @@ public class UserEntity extends AbstractEntity implements UserModel {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
+    public List<ProjectEntity> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<ProjectEntity> projects) {
+        this.projects = projects;
+    }
 }
