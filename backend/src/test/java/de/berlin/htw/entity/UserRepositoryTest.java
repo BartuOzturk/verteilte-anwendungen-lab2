@@ -1,27 +1,28 @@
-//package de.berlin.htw.entity;
-//
-//import io.quarkus.test.junit.QuarkusTest;
-//
-//import static org.junit.jupiter.api.Assertions.assertEquals;
-//import static org.junit.jupiter.api.Assertions.assertNotNull;
-//import static org.junit.jupiter.api.Assertions.assertThrows;
-//
-//import javax.inject.Inject;
-//import javax.transaction.Status;
-//import javax.transaction.TransactionalException;
-//import javax.transaction.UserTransaction;
-//import javax.validation.ConstraintViolationException;
-//
-//import org.junit.jupiter.api.AfterEach;
-//import org.junit.jupiter.api.Test;
-//
-//import de.berlin.htw.AbstractTest;
-//import de.berlin.htw.entity.dao.UserRepository;
-//import de.berlin.htw.entity.dto.UserEntity;
-//
-//@QuarkusTest
-//class UserRepositoryTest extends AbstractTest {
-//
+/*
+package de.berlin.htw.entity;
+
+import io.quarkus.test.junit.QuarkusTest;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import javax.inject.Inject;
+import javax.transaction.Status;
+import javax.transaction.TransactionalException;
+import javax.transaction.UserTransaction;
+import javax.validation.ConstraintViolationException;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
+
+import de.berlin.htw.AbstractTest;
+import de.berlin.htw.entity.dao.UserRepository;
+import de.berlin.htw.entity.dto.UserEntity;
+
+@QuarkusTest
+class UserRepositoryTest extends AbstractTest {
+
 //    static final String NAME = "Max Mustermann";
 //    static final String EMAIL = "max.mustermann@example.org";
 //
@@ -42,7 +43,7 @@
 //    void testTransactionRequired() {
 //        assertThrows(
 //            TransactionalException.class,
-//            () -> repository.add(new UserEntity()));
+//            () -> repository.persist(new UserEntity()));
 //    }
 //
 //    @Test
@@ -52,7 +53,7 @@
 //        entity.setEmail(EMAIL);
 //
 //        transaction.begin();
-//        final String userId = repository.add(entity);
+//        final String userId = repository.persist(entity);
 //        assertNotNull(userId);
 //        assertEquals(36, userId.length());
 //        transaction.commit();
@@ -71,8 +72,9 @@
 //        transaction.begin();
 //        assertThrows(
 //            ConstraintViolationException.class,
-//            () -> repository.add(entity));
+//            () -> repository.persist(entity));
 //        transaction.rollback();
 //    }
 //
 //}
+*/

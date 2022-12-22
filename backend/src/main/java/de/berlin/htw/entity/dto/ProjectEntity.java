@@ -12,6 +12,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "PROJECT")
 public class ProjectEntity extends AbstractEntity {
+
         @Id
         @GeneratedValue(generator = "UUID")
         @GenericGenerator(
@@ -32,7 +33,6 @@ public class ProjectEntity extends AbstractEntity {
         )
         private List<UserEntity> users;
 
-        // getters and setters for id, name, and users
 
     public String getId() {
         return id.toString();

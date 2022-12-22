@@ -74,5 +74,14 @@
 
     </changeSet>
 
+    <changeSet id="verteilte-anwendungen-0.0.4" author="stanik@htw-berlin.de">
+        <addPrimaryKey
+                constraintName="pk_U_ID_P_ID"
+                tableName="USER_PROJECT_JUNCTION"
+                columnNames="U_ID,P_ID"/>
+    </changeSet>
+
+
+
 
 </databaseChangeLog>

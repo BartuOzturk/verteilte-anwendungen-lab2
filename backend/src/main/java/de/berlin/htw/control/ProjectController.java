@@ -4,6 +4,7 @@ import de.berlin.htw.entity.dao.ProjectRepository;
 import de.berlin.htw.entity.dao.UserRepository;
 import de.berlin.htw.entity.dto.ProjectEntity;
 import de.berlin.htw.entity.dto.UserEntity;
+import de.berlin.htw.lib.dto.UserJson;
 import io.quarkus.security.User;
 import liquibase.hub.model.Project;
 
@@ -35,18 +36,14 @@ public class ProjectController {
     @POST
     @Transactional
     @Path("/{projectId}/users")
-    public Response addUserToProject(@PathParam("projectId") String projectId, UserEntity user) {
+    public Response addUserToProject(@PathParam("projectId") String projectId, UserJson user) {
         ProjectEntity project = projectRepository.get(projectId);
         UserEntity existingUser = userRepository.get(user.getId());
-        if (existingUser == null) {
-            userRepository.persist(user);
-        } else {
-            user = existingUser;
-        }
-        project.getUsers().add(user);
-        user.getProjects().add(project);
+
+        project.getUsers().add(existingUser);
+        existingUser.getProjects().add(project);
         projectRepository.persist(project);
-        return Response.ok(project).build();
+        return Response.ok().build();
     }
 }
 
